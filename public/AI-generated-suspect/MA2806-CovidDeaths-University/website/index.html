@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Effects of COVID-19 on University Attendance in the UK</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+      defer
+    ></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <header>
+      <button onclick="onHeaderBtnClicked(this)">Introduction</button>
+      <!-- <button onclick="onHeaderBtnClicked(this)">Map</button> -->
+      <button onclick="onHeaderBtnClicked(this)">Timeline</button>
+      <button onclick="onHeaderBtnClicked(this)">Visualisation</button>
+      <button onclick="onHeaderBtnClicked(this)">Reference</button>
+    </header>
+
+    <main>
+      <section id="introSection">
+        <h1>The Effects of COVID-19 on</h1>
+        <h2>University Attendance in the UK</h2>
+      </section>
+
+      <section>
+        <h1>
+          The COVID-19 pandemic has significantly affected various aspects of
+          life across different sectors worldwide. Notably, education has borne
+          unprecedented upheaval since its outbreak in 2019, particularly
+          enrolment and learning patterns, despite the situation showing some
+          form of normalcy. For instance, universities in England reported
+          102,382 cases among learners and 28,639 among university staff between
+          October 2020 and February 2022, suggesting a notable trend among the
+          student population (Dack et al., 2023, p. 106). In the United Kingdom,
+          the pandemic effects on university attendance have been profound, with
+          statistics revealing a staggering impact on traditional learning
+          modes. According to a US- based study by Korotchenko and Dobbs (2023,
+          p. 1), there was a statistically significant negative relationship
+          between COVID-19 and college enrolment for all universities in the
+          Texas United States. The current research explores the effects of the
+          pandemic on university attendance in the UK, delineating patterns
+          before, during, and after the pandemic years (2020-2024). It also
+          examines the pivotal role of vaccination efforts in shaping these
+          transformations while offering a comparative perspective with
+          Pakistan.
+        </h1>
+      </section>
+
+      <section id="timelineSection">
+        <h1>
+          The COVID-19 pandemic has catalysed a notable shift in educational
+          paradigms globally. It significantly impacted university attendance
+          and academic routines. In response to the unprecedented challenges
+          posed by the pandemic, educational institutions worldwide were
+          compelled to adapt swiftly to remote learning to ensure continuity in
+          learning while prioritising the safety and well-being of students and
+          staff (McGivern and Shepherd, 2022, p. 218; Pašák and Palcut, 2024, p.
+          1). As highlighted by Korotchenko and Dobbs (2023, p. 1), the pandemic
+          precipitated a statistically significant negative relationship between
+          the virus's spread and college enrolment. The results underscore the
+          profound influence of the pandemic on educational institutions'
+          operations. However, other empirical evidence shows that a shift from
+          campus-based lectures to digital ones because of pandemic guidelines
+          showed a significantly higher attendance rate, revealing the
+          effectiveness of online learning (Haugom, 2022, p. 1). Such suggests
+          the need for future studies to explore the topic in a broader scope.
+        </h1>
+      </section>
+
+      <section id="introductionHeader">
+        <h1 class="topic">Education and COVID 19</h1>
+      </section>
+
+      <section id="prefaceSection">
+        <div class="whiteBubble">
+          <p>
+            The United Kingdom, like many other nations, witnessed a rapid
+            transition from traditional, classroom-based learning to remote,
+            online instruction as part of efforts to adhere to
+            government-imposed lockdown measures and social distancing
+            protocols. According to Dack et al. (2023, p. 106), the government
+            recognised universities and higher education settings as
+            environments that could permeate sustained transmission. Therefore,
+            digital platforms emerged as indispensable tools for delivering
+            educational content and facilitating virtual lectures, seminars, and
+            assessments. However, the transition had notable challenges. They
+            include a lack of access to technology and internet connectivity
+            among students, with those from marginalised backgrounds
+            disproportionately affected (Gómez-García et al., 2022, p. 2). The
+            pandemic-induced shift towards online learning also underscored the
+            critical role of digital literacy and infrastructure in ensuring
+            equitable access to education. In response to these challenges,
+            educational institutions and policymakers endeavoured to bridge the
+            digital divide by implementing measures to provide devices and
+            internet access to disadvantaged students. Therefore, focusing on
+            the effects of COVID-19 before, during, and after the outbreak on
+            university attendance is imperative
+          </p>
+        </div>
+      </section>
+
+      <!-- <section id="mapHeader">
+        <h1 class="topic">Map</h1>
+      </section>
+
+      <section id="mapSection">
+        <div id="map"></div>
+      </section> -->
+
+      <section id="timelineHeader">
+      </section>
+
+      <section id="ukTimelineHeader">
+        <h1 class="topic">University Attendance in the UK</h1>
+      </section>
+
+      <section id="ukTimelineSection">
+        <div class="before_covid">
+          <h1>Before COVID-19 (pre-2020):</h1>
+          <p>
+            Learning activities continued as normal. The standard academic
+            calendar included in-person lectures, seminars, and examinations.
+            According to a survey conducted by the OECD (2020, p. 5), 92% of UK
+            students had a computer they could use for school-related work, a
+            proportion that is relatively higher than the OECD average of 89%.
+            However, those who reported having a quiet place to study among all
+            students and students from the bottom quartile were notably fewer
+            (89% and 81%, respectively) than the OECD average (91% and 85%,
+            respectively) (OECD, 2020, p. 5). In addition, students had more
+            time to study before the pandemic. A UK-based study reported a drop
+            in the average time students studied from 6 hours per day before
+            COVID-19 to 2-4.5 hours during the first lockdown (Leahy, Newton,
+            and Khan, 2021, p. 6).
+          </p>
+        </div>
+
+        <div class="during_covid">
+          <h1>During COVID-19</h1>
+          <p>
+            The onset of the pandemic necessitated rapid and unprecedented
+            changes in university attendance patterns in the United Kingdom. As
+            government-imposed lockdown measures and social distancing protocols
+            took effect, universities swiftly transitioned to online learning
+            modalities to mitigate the risk of virus transmission (McGivern and
+            Shepherd, 2022, p. 218; Pašák and Palcut, 2024, p. 1). Remote
+            lectures, seminars, and assessments became the norm, facilitated
+            through various digital platforms. However, such transition was not
+            without its challenges, as students grappled with issues such as
+            internet connectivity, access to technology, and adapting to remote
+            learning environments (Gómez-García et al., 2022, p. 2. According to
+            Leahy, Newton, and Khan (2021, p. 13), student attendance rates
+            (between March and May 2020) for those attending school in England
+            was 3-4% for primary school learning and 1% for secondary schools.
+            Notably, the rate increased during the autumn 2020 term as the
+            student population exercised and embraced preventive measures
+            (Leahy, Newton, and Khan, 2021, p. 15). The period presented a
+            challenge where most students missed in- person school in regions
+            affected by high infection rates due to the 'Kent variant' (Leahy,
+            Newton, and Khan, 2021, p. 5).
+          </p>
+        </div>
+
+        <div class="after_covid">
+          <h1>After COVID-19</h1>
+          <p>
+            As vaccination efforts gained momentum and the situation gradually
+            stabilised, universities in the UK embarked on a phased approach
+            towards the resumption of physical teaching and campus activities. A
+            study based on the American context found that the growth of the
+            number of total vaccinations accompanied an opposite decline in the
+            school closure levels, suggesting that more students were attending
+            schools following reopening schedules (Hu, 2022, p. 3079).
+            Furthermore, learning institutions introduced hybrid learning models
+            to offer a blend of in-person and online education to cater to
+            diverse student needs. University management continued to prioritise
+            health and safety measures on campus. They implemented vaccine
+            passports and regular testing requirements to facilitate safe campus
+            activities and access to in-person learning (Junge, Samaranayake,
+            and Zalesak, 2022, p. 1).
+          </p>
+        </div>
+      </section>
+
+      <section id="pkTimelineHeader">
+        <h1 class="topic">University Attendance in Pakistan</h1>
+      </section>
+
+      <section id="pkTimelineSection">
+        <div class="before_covid">
+          <h1>Before COVID-19 (pre-2020):</h1>
+          <p>
+            Schools in Pakistan also experienced distinct patterns. Prior to the
+            COVID-19 pandemic, university attendance followed a conventional
+            academic calendar characterised by in-person lectures, laboratory
+            sessions, and examinations conducted on campus. A study highlights
+            that low- and middle-income countries struggled with a learning
+            crisis before the pandemic, where their students performed poorly by
+            international standards and exhibited higher learning inequality
+            (Betthäuser, Bach-Mortensen, and Engzell, 2023, p. 380). Pakistan
+            features in the two categories. Baron and Bend (2023, para. 5)
+            acknowledge that school learner attendance rates had been relatively
+            low before the pandemic. Precisely, 27% of boys and 37% of girls
+            aged between 5 and 16 years were out of school, with those in the
+            rural areas having higher rates (Baron and Bend, 2023, para. 5).
+          </p>
+        </div>
+
+        <ul class="during_covid">
+          <h1>During COVID-19</h1>
+          <p>
+            The emergence of the COVID-19 pandemic prompted significant
+            disruptions to university attendance patterns in Pakistan. In response
+            to lockdown measures and social distancing protocols, universities
+            transitioned to online learning platforms to ensure continuity in
+            education (Mumtaz, Saqulain, and Mumtaz, 2021, p. 286). Remote
+            lectures, video seminars, and virtual labs became commonplace.
+            However, a study involving 1280 Pakistani students found that 62.6% of
+            them could not distinguish space for taking online classes and 65.3% a
+            disruptive and unsuitable environment at home for online education.
+            (Qamar and Bawany, 2021, p. 510).
+          </ul>
+          </p>
+
+        <div class="after_covid">
+          <h1>After COVID-19</h1>
+          <p>
+            Furthermore, during the post-pandemic era, universities
+            in Pakistan began to resume in-person classes alongside online options, with the gradual
+            easing of restrictions and improved vaccination efforts. The impact is attributable to a
+            relatively higher willingness (72.5%) of taking COVID-19 vaccine among Pakistani
+            university students (Hossain et al., 2022, p. 1)
+          </p>
+        </div>
+      </section>
+
+      <!-- <section id="comparisonHeader">
+        <h1 class="topic">Comparison</h1>
+      </section> -->
+
+      <!-- <section id="comparisonSection">
+        <ul class="list_1">
+          <h1>UK Impact</h1>
+          <li>
+            Swift transitioned to online learning in 2020, followed by a
+            cautious return to in-person classes in 2021.
+          </li>
+          <li>
+            Hybrid teaching models were introduced in 2022 to balance in-person
+            and online education.
+          </li>
+          <li>
+            Vaccine rollout enabled the full reopening of universities by 2023,
+            focusing on student well-being and academic support.
+          </li>
+          <li>
+            Vaccine passports and testing requirements facilitated safe campus
+            activities and accommodation access by 2024.
+          </li>
+        </ul>
+
+        <ul class="list_2">
+          <h1>Pakistan Impact</h1>
+          <li>
+            Digital infrastructure challenges hindered a similar shift to online
+            learning in 2020.
+          </li>
+          <li>
+            Slow vaccination progress prolonged reliance on remote education
+            through 2021 and 2022.
+          </li>
+          <li>
+            In-person classes will gradually resume by 2023 and be supported by
+            improved vaccine distribution efforts.
+          </li>
+          <li>
+            Full reopening of universities in 2024, emphasising blended learning
+            and addressing learning disparities.
+          </li>
+        </ul>
+      </section> -->
+
+      <section id="visualisationHeader">
+        <h1 class="topic">Visualisation</h1>
+      </section>
+
+      <section id="visualisationSection">
+        <div class="charts">
+          <h1>Covid-19 Stringency Index</h1>
+          <p>
+            The stringency index is a composite measure based on nine response
+            indicators including school closures, workplace closures,
+          </p>
+          <p>
+            and travel bans, rescaled to a value from 0 to 100 (100 =
+            strictest).
+          </p>
+
+          <br/>
+          <p>Figure 1 shows that the United Kingdom population had higher vaccination rates than
+            Pakistan, reflecting the different approaches and timing that the two countries used when
+            reopening schools during the pandemic. In addition, tertiary enrolment rates show that the
+            UK's (77.01%) are significantly higher than those of Pakistan (12.60%) in 2021. However,
+            they may not provide a glimpse that can allow comparison in the COVID-19 context due to
+            missing value for Pakistan in 2020.</p>
+
+          <div class="indicators">
+            <div class="flex gappedText">
+              <div class="redBox"></div>
+              <p class="indicator">Non-Vaccinated</p>
+            </div>
+
+            <div class="flex gappedText">
+              <div class="greenBox"></div>
+              <p class="indicator">Vaccinated</p>
+            </div>
+
+            <div class="flex gappedText">
+              <div class="blueBox"></div>
+              <p class="indicator">
+                Weighted average of vaccinated and non-vaccinated
+              </p>
+            </div>
+          </div>
+
+          <h1 class="countryIndex">United Kingdom</h1>
+          <div id="uk-chart" class="chart"></div>
+          <h1 class="countryIndex">Pakistan</h1>
+          <div id="pakistan-chart" class="chart"></div>
+          <p class="centeredText">(Data source: Our World in Data 2024)</p>
+        </div>
+      </section>
+
+      <section id="referenceHeader">
+        <h1 class="topic">Reference</h1>
+      </section>
+
+      <section id="referenceSection">
+        <h1>References List</h1>
+        <ul>
+          <li>
+            Baron, J. and Bend, M. (2023). In Pakistan, quality education
+            requires A different approach—and more investment. [online] World
+            Bank. Available at:
+            https://blogs.worldbank.org/en/endpovertyinsouthasia/pakistan-quality-education-requires-different-approach-and-more-investment
+            [Accessed 9 Apr. 2024].
+          </li>
+          <li>
+            Betthäuser, B.A., Bach-Mortensen, A.M. and Engzell, P., 2023. A
+            systematic review and meta-analysis of the evidence on learning
+            during the COVID-19 pandemic. Nature Human Behaviour, 7(3),
+            pp.375-385. https://doi.org/10.1038/s41562-022-01506-4.
+          </li>
+          <li>
+            Dack, K., Wilson, A., Turner, C., Anderson, C. and Hughes, G.J.,
+            2023. COVID-19 is associated with universities in England from
+            October 2020 to February 2022. Public Health, 224, pp. 106-112.
+            https://doi.org/10.1016/j.puhe.2023.08.025.
+          </li>
+          <li>
+            Gómez-García, G., Ramos-Navas-Parejo, M., de la Cruz-Campos, J.C.
+            and Rodríguez-Jiménez, C., 2022. Impact of COVID-19 on university
+            students: An analysis of its influence on psychological and academic
+            factors. International Journal of Environmental Research and Public
+            Health, 19(16), 10433. https://doi.org/10.3390/ijerph191610433.
+          </li>
+          <li>
+            Haugom, E., 2022. The effect of changing from campus-based to
+            digital teaching on student attendance: A case study of Norwegian
+            business students. Heliyon, 8(11).
+            <a href="https://doi.org/10.1016%2Fj.heliyon.2022.e11307"
+              >https://doi.org/10.1016%2Fj.heliyon.2022.e11307</a
+            >.
+          </li>
+          <li>
+            Hu, Y., 2022. Statistical Analysis of Covid Impact on Education in
+            North America. In 2022 6th International Seminar on Education,
+            Management and Social Sciences (ISEMSS 2022) (pp. 3072-3086).
+            Atlantis Press.
+          </li>
+          <li>
+            Junge, M., Li, S., Samaranayake, S. and Zalesak, M., 2022. Safe
+            reopening of university campuses is possible with COVID-19
+            vaccination. Plos one, 17(7), e0270106.
+          </li>
+          <li>
+            Korotchenko, S. and Dobbs, R., 2023. The effect of the COVID-19
+            pandemic on college enrolment: How has enrolment in criminal justice
+            programs been affected by the pandemic in comparison to other
+            college programs? Frontiers in Education, 8. 1136040.
+          </li>
+          <li>
+            Leahy, F., Newton, P., and Khan, A. 2021. Learning during the
+            pandemic: Quantifying lost time.
+            https://assets.publishing.service.gov.uk/media/60e6bedce90e0764d36143b1/6803-2_Learning_during_the_pandemic-_quantifying_lost_time.pdf.
+          </li>
+          <li>
+            McGivern, P. and Shepherd, J., 2022. The impact of COVID-19 on UK
+            university students: Understanding the interconnection of issues
+            experienced during lockdown. Power and Education, 14(3), pp.218-227.
+            https://doi.org/10.1177/17577438221104227.
+          </li>
+          <li>
+            Mumtaz, N., Saqulain, G. and Mumtaz, N., 2021. Online academics in
+            Pakistan: COVID-19 and beyond. Pakistan Journal of Medical Sciences,
+            37(1), pp.283-287. https://doi.org/10.12669/pjms.37.1.2894.
+          </li>
+          <li>
+            OECD. 2020. School education during COVID-19: Were teachers and
+            students ready? OECD.
+            https://www.oecd.org/education/United-Kingdom-coronavirus-education-country-note.pdf.
+          </li>
+          <li>
+            Our World in Data. (2024). United Kingdom: Coronavirus pandemic
+            country profile. Our World in Data.
+            <a
+              href="https://ourworldindata.org/coronavirus/country/united-kingdom?country=GBR~PAK#citation"
+              >https://ourworldindata.org/coronavirus/country/united-kingdom?country=GBR~PAK#citation</a
+            >
+          </li>
+          <li>
+            Pašák, M. and Palcut, M., 2024. Comparing university students'
+            performance in the statistical processing and visualisation of
+            laboratory data before, during and after the COVID-19 pandemic.
+            Education Sciences, 14(3), p.241.
+            https://doi.org/10.3390/educsci14030241.
+          </li>
+          <li>
+            World Bank Data Bank. (2024). School enrolment, tertiary (% gross) -
+            United Kingdom, Pakistan. World Bank
+            https://data.worldbank.org/indicator/SE.TER.ENRR?end=2022&locations=GB-PK&start=2015.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>&copy; 2024 COVID-19 Effects on University Attendance</footer>
+    <script src="./index.js"></script>
+  </body>
+</html>
